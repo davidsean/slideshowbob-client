@@ -1,5 +1,6 @@
 import time
 import logging
+import glob
 import numpy as np
 
 from PIL import Image
@@ -15,7 +16,7 @@ class Slideshow:
         self.output_device=output_device
         self.width=1824        
         self.height=984
-        self.images=[]
+        self.images=glob.glob('./photos/*.png')
         self.current_counter = 0
 
     def show(self, img:Image.Image):
