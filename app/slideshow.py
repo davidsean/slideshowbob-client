@@ -23,7 +23,7 @@ class Slideshow:
     def show(self, img:Image.Image):
         self._logger.info('showing an image')
         with open(self.output_device, 'rb+') as buf:
-            buf.write(np.asarray(img.getdata(),dtype=np.uint8))
+            buf.write(np.swapaxes(np.asarray(img.getdata(),dtype=np.uint8),0,2)
     
     def add_image(self, path:str):
         self.images.insert(self.current_counter, path)
@@ -35,6 +35,7 @@ class Slideshow:
             if len(self.images)>0:
                 print(f'opening image: {self.images[self.current_counter]}')
                 img = Image.open(self.images[self.current_counter]).resize(size=(self.width,self.height))
+
                 self.show(img)
                 self.current_counter +=1
                 if self.current_counter >= len(self.images):
