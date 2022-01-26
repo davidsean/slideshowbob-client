@@ -18,6 +18,7 @@ class Slideshow:
         self.height=984
         self.images=glob.glob('./photos/*.png')
         self.current_counter = 0
+        self._logger.info('image list: %s', self.images)
 
     def show(self, img:Image.Image):
         self._logger.info('showing an image')
