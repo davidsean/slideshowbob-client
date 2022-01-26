@@ -51,7 +51,7 @@ class MessageProcessor:
         if self.name is not None and self.profile_pic is not None:
             profile_image.thumbnail((self.thumbnail_size, self.thumbnail_size))
             # start with black image 
-            montage = Image.new("BGRA", (posted_image.size[0]+self.thumbnail_size,posted_image.size[1]+self.thumbnail_size), (0,0,0,255))
+            montage = Image.new("RGBA", (posted_image.size[0]+self.thumbnail_size,posted_image.size[1]+self.thumbnail_size), (0,0,0,255))
             montage.paste(profile_image, (0,0))
             montage.paste(posted_image, (self.thumbnail_size, self.thumbnail_size))
             title = ImageDraw.Draw(montage)
