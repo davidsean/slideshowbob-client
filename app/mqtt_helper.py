@@ -19,6 +19,7 @@ class MQTTHelper:
         logging.basicConfig()
         self._logger = logging.getLogger(__name__)
         self._logger.setLevel(logging.DEBUG)
+        self._logger.info("Instantiated MQTTHelper")
 
         self.sub_callback = sub_callback
 

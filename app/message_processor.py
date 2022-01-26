@@ -14,6 +14,8 @@ class MessageProcessor:
         logging.basicConfig()
         self._logger = logging.getLogger(__name__)
         self._logger.setLevel(logging.DEBUG)
+        self._logger.info("Instantiated MessageProcessor")
+
         self.thumbnail_size=thumnail_size
         self.font_path = Path(__file__).parent.joinpath('static/Roboto-Regular.ttf').absolute()
         self.image_url = image_url
