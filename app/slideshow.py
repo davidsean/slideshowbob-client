@@ -13,8 +13,8 @@ class Slideshow:
         self._logger.info('Instantiated Slideshow')
 
         self.output_device=output_device
-        self.height=576
-        self.width=1024
+        self.width=1824        
+        self.height=984
         self.images=[]
         self.current_counter = 0
 
@@ -34,6 +34,7 @@ class Slideshow:
                 print(f'opening image: {self.images[self.current_counter]}')
                 img = Image.open(self.images[self.current_counter])
                 img.resize(size=(self.width,self.height))
+
                 self.show(img)
                 self.current_counter +=1
                 if self.current_counter >= len(self.images):
