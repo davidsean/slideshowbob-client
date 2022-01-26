@@ -1,1 +1,0 @@
-downloaded photos are stored here
