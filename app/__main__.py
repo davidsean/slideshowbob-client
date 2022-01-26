@@ -34,7 +34,7 @@ def sub_callback(client:Client, userdata, message:MQTTMessage) -> None:
         mp = MessageProcessor(image_url, sender_id)
         img:Image.Image = mp.process_post()
         fname=f'./photos/{time.time()*10:.0f}.png'
-        img.save(fname})
+        img.save(fname)
         slideshow.add_image(fname)
 
     else:
