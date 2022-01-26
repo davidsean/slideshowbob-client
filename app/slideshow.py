@@ -38,7 +38,7 @@ class Slideshow:
         while True:
             if len(self.images)>0:
                 print(f'opening image: {self.images[self.current_counter]}')
-                img = Image.open(self.images[self.current_counter]).resize(size=(self.width,self.height))
+                img = Image.open(self.images[self.current_counter]).thumbnail(size=(self.width,self.height))
 
                 self.show(img)
                 self.current_counter +=1
