@@ -25,7 +25,7 @@ class Slideshow:
         data = np.asarray(img.getdata(),dtype=np.uint8)
         red, green, blue, alpha = data.T 
         bgr_data = np.array([blue, green, red, alpha])
-        bgr_data = bgr_data.transpose()
+        bgr_data = np.ascontiguousarray(bgr_data.transpose())
         with open(self.output_device, 'rb+') as buf:
             buf.write(bgr_data)
     
