@@ -22,8 +22,11 @@ class Slideshow:
 
     def show(self, img:Image.Image):
         self._logger.info('showing an image')
+        data = np.asarray(img.getdata(),dtype=np.uint8)
+        red, green, blue, alpha = data.T 
+        data = np.array([blue, green, red, alpha])
         with open(self.output_device, 'rb+') as buf:
-            buf.write(np.swapaxes(np.asarray(img.getdata(),dtype=np.uint8),0,2))
+            buf.write(data.transpose())
     
     def add_image(self, path:str):
         self.images.insert(self.current_counter, path)
